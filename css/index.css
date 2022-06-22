@@ -1,12 +1,52 @@
-@font-face {
-  font-family: 'Vitro_core';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/Vitro_core.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+:root {
+  --white: #ffffff;
+  --blue: #0310c7;
+  --yellow: #faf746;
+  --pink: #db52f3;
 }
 * {
   box-sizing: border-box;
+
   margin: 0;
   padding: 0;
+
   font-family: 'Vitro_core', sans-serif;
+}
+body {
+  background-image: url('/public/assets/background.jpeg');
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+
+  margin: 2rem;
+
+  color: var(--white);
+}
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.game__button > button {
+  padding: 0.6rem;
+
+  border-radius: 5%;
+  background-color: var(--pink);
+  color: var(--white);
+}
+.game__button > button:hover {
+  background-color: var(--yellow);
+  color: var(--blue);
+
+  cursor: pointer;
+}
+.game__button-start::before {
+  content: 'START GAME';
+}
+
+.game__button-reset::before {
+  content: 'RESET GAME';
 }
