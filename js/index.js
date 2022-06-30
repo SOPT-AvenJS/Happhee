@@ -7,9 +7,7 @@ let restChance = $('.chance__rest');
 document.addEventListener('keypress', (event) => {
   const alphabet = String.fromCharCode(event.keyCode).toUpperCase();
 
-  if (answerWord.indexOf(alphabet) > -1 && restChance.innerHTML === 0) {
-    //게임종료
-  } else {
+  if (answerWord.indexOf(alphabet) === -1 || restChance.innerHTML !== '0') {
     const currentWord = wordSection.innerHTML.split(' ').filter((alphabet) => alphabet !== '');
     wordSection.innerHTML = '';
     answerWord.forEach((answerAlphabet, idx) => {
@@ -19,10 +17,16 @@ document.addEventListener('keypress', (event) => {
     });
     restChance.innerHTML = parseInt(restChance.innerHTML) - 1;
     updateKingmanImg();
+    updateGameButton();
   }
 });
 const updateKingmanImg = () => {
   $('.game__kingman').src = `../public/assets/${restChance.innerHTML}.png`;
+};
+const updateGameButton = () => {
+  restChance.innerHTML !== '11'
+    ? $('.game__button').classList.add('reset')
+    : $('.game__button').classList.remove('reset');
 };
 // 단어 받아오기
 const getWord = async () => {
@@ -51,6 +55,8 @@ const initGame = async () => {
   }
   restChance.innerHTML = answerWord.length + 3;
   updateKingmanImg();
+  updateGameButton();
+
   console.log(answerWord);
 };
 window.onload = () => {
