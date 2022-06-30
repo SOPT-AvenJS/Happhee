@@ -7,7 +7,9 @@ let restChance = $('.chance__rest');
 document.addEventListener('keypress', (event) => {
   const alphabet = String.fromCharCode(event.keyCode).toUpperCase();
 
-  if (answerWord.indexOf(alphabet) > -1) {
+  if (answerWord.indexOf(alphabet) > -1 && restChance.innerHTML === 0) {
+    //게임종료
+  } else {
     const currentWord = wordSection.innerHTML.split(' ').filter((alphabet) => alphabet !== '');
     wordSection.innerHTML = '';
     answerWord.forEach((answerAlphabet, idx) => {
@@ -15,10 +17,14 @@ document.addEventListener('keypress', (event) => {
       else if (answerAlphabet === alphabet) wordSection.innerHTML += ` ${alphabet} `;
       else wordSection.innerHTML += ' _ ';
     });
-  } else {
+    restChance.innerHTML = parseInt(restChance.innerHTML) - 1;
+    updateKingmanImg();
   }
 });
-
+const updateKingmanImg = () => {
+  //../public/assets//0.png
+  $('.game__kingman').src = `../public/assets/${restChance.innerHTML}.png`;
+};
 // 단어 받아오기
 const getWord = async () => {
   const response = await fetch('http://puzzle.mead.io/puzzle?wordCount=1');
@@ -31,7 +37,7 @@ const getWord = async () => {
 };
 // 단어 길이 예외
 const isWordLength = (word) => {
-  return word.length !== 6 ? true : false;
+  return word.length !== 8 ? true : false;
 };
 
 const attachEvent = (gameButton) => {
@@ -44,11 +50,8 @@ const initGame = async () => {
   while (isWordLength(answerWord)) {
     answerWord = await getWord();
   }
-  wordSection.innerHTML = '';
   restChance.innerHTML = answerWord.length + 3;
-  answerWord.forEach(() => {
-    wordSection.innerHTML += ' _ ';
-  });
+  updateKingmanImg();
   console.log(answerWord);
 };
 window.onload = () => {
