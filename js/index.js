@@ -22,7 +22,6 @@ document.addEventListener('keypress', (event) => {
   }
 });
 const updateKingmanImg = () => {
-  //../public/assets//0.png
   $('.game__kingman').src = `../public/assets/${restChance.innerHTML}.png`;
 };
 // 단어 받아오기
