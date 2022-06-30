@@ -33,7 +33,7 @@ main {
   height: 100vh;
   padding: 0.5rem;
 
-  background-image: url('/public/assets/background.jpeg');
+  background-image: url('../public/assets/background.jpeg');
   background-size: cover;
   font-size: 30px;
 }
