@@ -30,6 +30,10 @@ header {
   font-size: 50px;
 }
 main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   width: 100%;
   height: 100vh;
   padding: 0.5rem;
@@ -40,11 +44,7 @@ main {
 }
 
 .game__button {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-.game__button > button {
+  width: fit-content;
   padding: 0.6rem;
   margin: 0.6rem;
 
@@ -53,31 +53,32 @@ main {
   color: var(--white);
   font-size: 30px;
 }
-.game__button > button:hover {
+.game__button:hover {
   background-color: var(--yellow);
   color: var(--blue);
 
   cursor: pointer;
 }
-.game__button-start::before {
+.game__button.start::before {
   content: 'START GAME';
 }
 
-.game__button-reset::before {
+.game__button.reset::before {
   content: 'RESET GAME';
 }
 .game {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  flex: 2;
+
+  width: 100%;
+  height: 100vh;
 
   margin: 0.6rem;
 }
 .game__kingman {
-  width: 20%;
-  height: 40%;
+  width: 30%;
+  height: 50%;
 }
 
 .game__word {
@@ -87,7 +88,7 @@ main {
   border-radius: 5%;
   background-color: var(--pink);
   color: var(--white);
-  font-size: 4rem;
+  font-size: 3.5rem;
 
   text-align: center;
 }
