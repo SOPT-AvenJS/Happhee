@@ -49,15 +49,13 @@ const attachEvent = (gameButton) => {
 // 게임 시작 / 재시작
 const initGame = async () => {
   answerWord = await getWord();
-
+  wordSection.innerHTML = '_ _ _ _ _ _ _ _ ';
   while (isWordLength(answerWord)) {
     answerWord = await getWord();
   }
   restChance.innerHTML = answerWord.length + 3;
   updateKingmanImg();
   updateGameButton();
-
-  console.log(answerWord);
 };
 window.onload = () => {
   initGame();
