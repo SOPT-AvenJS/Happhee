@@ -59,7 +59,7 @@ main {
 
   cursor: pointer;
 }
-.game__button.start::before {
+.game__button::before {
   content: 'START GAME';
 }
 
