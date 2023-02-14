@@ -5,17 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KING MAN</title>
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/index.css" />
   </head>
   <body>
     <header><h1>👑 KING MAN 👑</h1></header>
     <main>
-      <section class="kingman"></section>
-      <section class="word"></section>
-      <section class="game__button">
-        <button class="game__button-start" type="button"></button>
+      <button class="game__button" type="button"></button>
+
+      <aside class="chance">
+        <div class="chance__content">
+          <span>REST CHANCE : </span>
+          <span class="chance__rest"></span>
+        </div>
+      </aside>
+
+      <section class="game">
+        <img class="game__kingman" src="../public/assets/11.png" alt="kingmanImage" />
+
+        <div class="game__word">_ _ _ _ _ _ _ _</div>
       </section>
     </main>
   </body>
+  <script src="../js/index.js"></script>
 </html>
