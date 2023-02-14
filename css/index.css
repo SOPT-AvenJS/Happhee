@@ -1,6 +1,6 @@
 :root {
   --white: #ffffff;
-  --blue: #030b77;
+  --blue: #0310c7;
   --yellow: #faf746;
   --pink: #db52f3;
 }
@@ -13,16 +13,33 @@
   font-family: 'Vitro_core', sans-serif;
 }
 body {
+  background-image: url('/public/assets/background.jpeg');
+  background-size: cover;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   color: var(--white);
+
 }
 
 header {
   display: flex;
   justify-content: center;
+
+
+  margin: 2rem;
+
+  color: var(--white);
+}
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.game__button > button {
+  padding: 0.6rem;
 
   padding: 2rem;
 
@@ -51,14 +68,28 @@ main {
   border-radius: 5%;
   background-color: var(--pink);
   color: var(--white);
+
+}
+.game__button > button:hover {
+
   font-size: 30px;
 }
 .game__button:hover {
+
   background-color: var(--yellow);
   color: var(--blue);
 
   cursor: pointer;
 }
+
+.game__button-start::before {
+  content: 'START GAME';
+}
+
+.game__button-reset::before {
+  content: 'RESET GAME';
+}
+
 .game__button::before {
   content: 'START GAME';
 }
